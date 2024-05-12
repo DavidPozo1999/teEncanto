@@ -13,7 +13,9 @@
 }
 .logo-container{
     width: 160px;
-    height: 110px;
+    height: 130px;
+    display: flex;
+    align-items: center;
 }
 
 .logo-container > img{
@@ -43,13 +45,24 @@
 
 .logging-link{
     color: var(--color-background-light);
+    border-radius: 20px;
+    transition: all .3s ease;
+    width: 130px;
 }
+
+
 
 .register-link{
     background-color: var(--color-background-light);
     color: var(--color-primary-green);
     width: 130px;
     border-radius: 20px;
+    transition: all .3s ease;
+}
+
+.register-link:hover, .logging-link:hover{
+    color: var(--color-background-light);
+    background-color: var(--color-third-green);
 }
 .register-link *{
     margin: 0 auto;

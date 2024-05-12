@@ -1,0 +1,14 @@
+.header-searcher-container{
+    width: 100%;
+    max-width: 1920px;
+    background-color: var(--color-secondary-green);
+    height: 120px;
+}
+
+.searcher-container{
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}

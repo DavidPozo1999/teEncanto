@@ -1,0 +1,20 @@
+.body-container{
+    background-color: var(--color-background-light);
+    height: 100vh;
+}
+
+.cards-container{
+    width: 75%;
+    margin: 0 auto;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+}
+
+footer{
+    background-color: var(--color-primary-green);
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    padding: 3rem 1rem;
+}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../IMAGENES/logo.png"
+import logo from "../IMAGENES/logo-sinfondo.png"
 import "../estilos/header.style.css"
 import { BiSolidDog } from "react-icons/bi";
 import { FaRocket } from "react-icons/fa";
