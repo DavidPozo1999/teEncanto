@@ -1,13 +1,14 @@
 .body-container{
     background-color: var(--color-background-light);
     padding: 100px 0 100px 0;
+    overflow: auto;
 }
 
 .cards-container{
     width: 75%;
     margin: 0 auto;
     display: grid;
-    grid-auto-rows: auto;
+    grid-auto-rows: minmax(100px, auto);
     grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
 }
 
@@ -16,4 +17,21 @@ footer{
     width: 100%;
     min-height: 350px;
     padding: 3rem 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        grid-gap: 20px; /* Espacio entre las columnas */
+        width: 100%; /* Ocupa todo el ancho de la pantalla */
+        box-sizing: border-box; /* Asegura que el padding y el border no aumenten el ancho total */
+        padding: 0 20px; /* Añade un padding a los lados para evitar que las tarjetas toquen los bordes de la pantalla */
+    }
+}
+
+/* Para pantallas pequeñas (teléfonos móviles, 480px y más) */
+@media only screen and (max-width: 480px) {
+    .cards-container {
+        grid-template-columns: 1fr; /* Una columna */
+    }
 }

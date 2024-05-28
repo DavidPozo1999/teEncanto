@@ -1,11 +1,15 @@
 import "../estilos/header-searcher.style.css"
-import Searcher from "./searcher.component"
-const HeaderSearcher=()=>{
+const HeaderSearcher=({setSearchValue})=>{
     return(
         <>
         <div className="header-searcher-container">
            <div className="searcher-container">
-            <Searcher />
+           <div id='search-box'>
+            <form action='/search' id='search-form' method='get' target='_top'>
+                <input id='search-text' name='q' type='text'onChange={(e) => setSearchValue(e.target.value)}/>
+                <button id='search-button' type='submit'><span>Busca!</span></button>
+            </form>
+        </div>
            </div>
         </div>
         </>
