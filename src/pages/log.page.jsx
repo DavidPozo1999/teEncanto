@@ -1,4 +1,3 @@
-import LoggingForm from "../componentes/logging-form.component"
 import "../estilos/log.style.css"
 import imagenLogging from "../IMAGENES/fondo_dog.jpg"
 const Logging=({form})=>{

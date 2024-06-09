@@ -12,7 +12,9 @@
     .card-container:hover {
     border: 2px solid var(--color-third-green);
     }
-    
+    a{
+    text-decoration: none;
+    }
     .card-img-container {
     width: 100%;
     height: 70%;

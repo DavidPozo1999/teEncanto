@@ -1,4 +1,3 @@
-import beagle from '../IMAGENES/PERROS/beagle_1.jpg'
 import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import "../estilos/card-dog.style.css"
 import { Link } from 'react-router-dom';

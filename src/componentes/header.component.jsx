@@ -3,8 +3,8 @@ import logo from "../IMAGENES/logo-sinfondo.png"
 import "../estilos/header.style.css"
 import { BiSolidDog } from "react-icons/bi";
 import { FaRocket } from "react-icons/fa";
-
-const Header=()=>{
+import HoverMenu from "./hover-menu.component";
+const Header=({user})=>{
     return(
         <>
             <div className="header-container">
@@ -12,6 +12,7 @@ const Header=()=>{
                     <div className="logo-container">
                         <img src={logo} />
                     </div>
+                    {user ? <HoverMenu user={user.username}></HoverMenu> :
                     <div className="header-links-container">
                         <Link to={"/inicio"} className="link logging-link">
                             <div className="link-container">
@@ -26,6 +27,7 @@ const Header=()=>{
                             </div>
                         </Link>
                     </div>
+                }
                 </div>
             </div>
         </>

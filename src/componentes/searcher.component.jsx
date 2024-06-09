@@ -3,10 +3,8 @@ const Searcher=()=>{
     return(
         <>
         <div id='search-box'>
-            <form action='/search' id='search-form' method='get' target='_top'>
-                <input id='search-text' name='q' type='text'/>
+                <input id='search-text'/>
                 <button id='search-button' type='submit'><span>Busca!</span></button>
-            </form>
         </div>
         </>
     )

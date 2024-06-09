@@ -1,0 +1,43 @@
+.hover-menu ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 0 30px;
+    padding: 20px;
+}
+
+.hover-menu ul li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+
+header ul li:hover .sebmenu{
+    opacity: 1;
+    z-index: 99;
+    margin-top: 0;
+}
+
+.hover-menu ul .submenu {
+    position: absolute;
+    width: 300px;
+    background-color: var(--color-background-light);
+    border: 2px solid var(--color-primary-green);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.hover-menu ul .submenu li a {
+    color: black;
+}
+
+.hover-menu ul li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 10px;
+}

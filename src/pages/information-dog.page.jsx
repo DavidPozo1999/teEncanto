@@ -2,28 +2,41 @@ import Header from "../componentes/header.component"
 import Footer from "../componentes/footer.component"
 import {auth} from "../firebase/config";
 import "../estilos/dog-page.style.css"
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { getPet, getQuestions } from "../API/requests";
+import { getPet, getQuestions, getForm, getUser } from "../API/requests";
 import AdoptionForm from "../componentes/Adoption-form.component";
-import { getUser } from "../API/requests";
 const DogPage=()=>{
     const [showForm, setShowForm]=useState(false);
     const { id } = useParams();
     const [pet, setPet] = useState(null);
     const [questions, setQuestions] = useState([]);
     const [userData, setUserData] = useState(null);
+    const [form, setForm] = useState(null);
+    const navigate = useNavigate();
 
     const fetchUserData= async()=>{
         auth.onAuthStateChanged(async (user) => {
             if (user) {
                 const data= await getUser(user.uid);
                 setUserData(data);
+                  // Llamada a getForm después de obtener los datos del usuario
+            const fetchForm = async () => {
+                try {
+                    const formData = await getForm(data.id, id);
+                    console.log(formData);
+                    setForm(formData);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+            fetchForm();
             } else {
                 console.log('No user is signed in.');
             }
         });
     }
+    
 
     useEffect(() => {
         const fetchPet = async () => {  
@@ -58,7 +71,7 @@ const DogPage=()=>{
     return(
         <>
             <header>
-                <Header></Header>
+                <Header user={userData}></Header>
             </header>
             <body>
                 {pet &&
@@ -105,7 +118,15 @@ const DogPage=()=>{
                         </div>
                     </div>
                         <div className="adopt-button-container">
-                            <button className="adopt-button" onClick={()=>setShowForm(true)}>Rellenar formulario!</button>
+                        {pet && pet.adoptionStatus === "Adopted" ? (
+        <p>Nuestro amigo no está disponible</p>
+    ) : form && form.length !== 0 ? (
+        <p>Ya has realizado una solicitud por nuestro amigo</p>
+    ) : userData ? (
+        <button onClick={() => setShowForm(true)}>Rellenar formulario</button>
+    ) : (
+        <button onClick={() => navigate('/inicio')}>Rellenar formulario</button>
+    )}                      
                         </div>
                         {questions && <AdoptionForm isOpen={showForm} questions={questions} user={userData} pet={pet} />}
                     </div>

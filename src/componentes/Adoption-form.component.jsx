@@ -1,7 +1,10 @@
 import "../estilos/form.style.css"
 import { postForm } from "../API/requests";
+import { Link, useNavigate } from "react-router-dom";
+
 const AdoptionForm = ({ isOpen, questions, user, pet }) => {
-    
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = {
@@ -32,11 +35,12 @@ const AdoptionForm = ({ isOpen, questions, user, pet }) => {
                 address: user.address
             },
             adoptionDate: "2023-05-27",
-            approvalStatus: "PENDING",
+            approvalStatus: "Pending",
             reasonForRejection: null,
             additionalNotes: "Looking forward to adopting a new friend!"
         };
         postForm(form);
+        navigate("/");
     };
     return (
         <>
